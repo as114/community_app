@@ -1,42 +1,72 @@
-import React, {Component} from "react";
-import { Row, Col, Menu, Icon } from 'antd';
+import React, {Component} from 'react';
+import { Menu, Icon, Row } from 'antd';
+import {Link, withRouter, Route} from 'react-router-dom';
+import {HomeView, IssuesView} from '../Views/HomeView';
 
-export default class HomeHeader extends Component {
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
+
+class HomeHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expanded: false,
-      user: this.props.user
-    };
+      current: 'home',
+    }
+  
   }
+  
+
+  handleClick = (e) => {
+    sessionStorage.setItem('tabKey', e.key);
+    this.setState({current: sessionStorage.getItem('tabKey')});
+  }
+
+  // componentDidUpdate() {
+  //   var tabKey = sessionStorage.getItem('tabKey');
+  //   if (tabKey==null){
+  //     this.setState({current:'home'});
+  //     }
+  //   else if(sessionStorage.getItem('tabKey')!=null){
+  //     this.setState({current:sessionStorage.getItem('tabKey')});
+  //   }
+  // }
+
   render() {
+    
     return (
       <div>
-          <div style={{height:'100px', backgroundColor:'cyan'}}>
-              <Row type="flex" justify="space-around" align="middle">
-                  <Col span={8}>
-                    <h3 style={{fontFamily:'sans-serif', fontWeight:'bold', textAlign:'center'}}>Milega! <br/>dhoondte raho bas.....</h3>
-                  </Col>
-              </Row>
-          </div>
-          <Row type="flex" justify="center">
-          <Menu
-              onClick={this.handleClick}
-              selectedKeys={[this.state.current]}
-              mode="horizontal"
-          >
-              <Menu.Item key="mail">
-                  <Icon type="mail" />Navigation One
-              </Menu.Item>
-              <Menu.Item key="app">
-                  <Icon type="appstore" />Navigation Two
-              </Menu.Item>
-              <Menu.Item key="alipay">
-                  <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
-              </Menu.Item>
-          </Menu>
-          </Row>
-      </div>
+        <Row type="flex" justify="space-around" align="middle">
+        <Menu
+          onClick={this.handleClick}
+          selectedKeys={sessionStorage.getItem('tabKey')}
+          mode="horizontal"
+          style={{backgroundColor: 'orange'}}
+        >
+    
+          <Menu.Item key="home">
+            <Link to="/home"><Icon type="home" />Community Home</Link>
+            
+          </Menu.Item>
+        
+      
+          <Menu.Item key="issues">
+            <Link to="/open_issues"><Icon type="fire" />Issues</Link>
+          </Menu.Item>
+      
+      
+          <Menu.Item key="about">
+            <Link to="/about"><Icon type="read" />About</Link>
+          </Menu.Item>
+        
+        
+          <Menu.Item key="account">
+            <Link to="/account"><Icon type="logout" />Account</Link>
+          </Menu.Item>
+      </Menu>
+    </Row>
+    </div>
     );
   }
 }
+
+export default HomeHeader;

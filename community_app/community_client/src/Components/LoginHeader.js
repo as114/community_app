@@ -11,16 +11,12 @@ export default class LoginHeader extends Component {
     }
     render() {
         return (
-            <div style={{height: '100px', backgroundColor: 'cyan', overflow:'auto'}}>
-                <Row type="flex" justify="space-around" align="middle">
-                    <Col span={8}>
-                        <h3 style={{
-                            fontFamily: 'sans-serif',
-                            fontWeight: 'bold',
-                            textAlign: 'center'
-                        }}>Milega! <br/>dhoondte raho bas.....</h3>
+            <div style={{height: '100px', backgroundColor: '#66cc00', overflow:'auto'}}>
+                <Row type="flex" justify="center" align="middle">
+                    <Col span={12} offset={6}>
+                        <img src='../src/logo.png' alt="Community Logo" height='100px' width='300px'></img>
                     </Col>
-                </Row>
+                </Row>     
             </div>
         );
     }

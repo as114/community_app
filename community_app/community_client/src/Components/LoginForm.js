@@ -49,7 +49,7 @@ class LoginForm extends Component {
                         if (response.data.valid == 1){
                             this.setState({'loading': false})
                             this.props.form.resetFields();
-                            sessionStorage.setItem('key', response.data.token);
+                            sessionStorage.setItem('sessionKey', response.data.token);
                             this.props.history.push('/community_home');
                         }
                     })

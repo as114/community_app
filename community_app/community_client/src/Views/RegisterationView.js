@@ -9,7 +9,6 @@ export default class RegisterationView extends Component{
     render(){
         return(
             <div>
-                <LoginHeader/>
                 <RegistrationForm/>
                 <PageFooter/>
             </div>

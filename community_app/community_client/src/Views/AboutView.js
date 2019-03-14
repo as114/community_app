@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import LoginForm from '../Components/LoginForm';
 
-export default class LoginView extends Component {
+export default class AboutView extends Component {
     constructor(props){
         super(props)
     }
@@ -9,9 +8,8 @@ export default class LoginView extends Component {
     render(){
         return(
             <div>
-                <LoginForm/>
+                About Community App!
             </div>
         );
     }
 }
-

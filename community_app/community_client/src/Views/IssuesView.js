@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import LoginForm from '../Components/LoginForm';
+import Issues from '../Components/Issues';
+import HomeHeader from '../Components/HomeHeader';
 
-export default class LoginView extends Component {
+export default class IssuesView extends Component {
     constructor(props){
         super(props)
     }
@@ -9,9 +10,8 @@ export default class LoginView extends Component {
     render(){
         return(
             <div>
-                <LoginForm/>
+                <Issues/>
             </div>
         );
     }
 }
-
